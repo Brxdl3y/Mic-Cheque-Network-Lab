@@ -1,0 +1,120 @@
+##############################################
+# ROUTER 1 – MAIN STAGE
+##############################################
+enable
+configure terminal
+hostname MAIN-EDGE-R1
+enable secret <OSPF>
+!
+# Interfaces
+interface Se0/3/0
+ ip address 10.0.0.1 255.0.0.0
+ encapsulation ppp
+ clock rate 2000000
+ no shutdown
+!
+interface Se0/3/1
+ ip address 11.0.0.1 255.0.0.0
+ encapsulation ppp
+ no shutdown
+!
+interface Gig0/1
+ ip address 192.168.1.1 255.255.255.0
+ duplex full
+ speed 100
+ no shutdown
+!
+interface Loopback0
+ ip address 1.1.1.1 255.255.255.255
+!
+# OSPF Configuration
+router ospf 1
+ router-id 1.1.1.1
+ network 10.0.0.0 0.0.0.3 area 0
+ network 11.0.0.0 0.0.0.3 area 0
+ network 192.168.1.1 0.0.0.0 area 0
+ network 192.168.1.0 0.0.0.255 area 0
+  passive-interface GigabitEthernet0/0
+ passive-interface Loopback0
+
+!
+
+
+##############################################
+# ROUTER 2 – BACKSTAGE
+##############################################
+enable
+configure terminal
+hostname BACK-CORE-R2
+enable secret OSPF 
+
+!
+# Interfaces
+interface Se0/3/0
+ ip address 11.0.0.2 255.0.0.0
+ encapsulation ppp
+ clock rate 2000000
+ no shutdown
+!
+interface Se0/3/1
+ ip address 12.0.0.2 255.0.0.0
+  encapsulation ppp
+ ip ospf 2 area 0
+ no shutdown
+!
+interface Loopback0
+ ip address 2.2.2.2 255.255.255.255
+!
+# OSPF Configuration
+router ospf 1
+ router-id 2.2.2.2
+ network 11.0.0.0 0.0.0.3 area 0
+ network 12.0.0.0 0.0.0.3 area 0
+ passive-interface Loopback0
+ passive-interface default
+ no passive-interface Se0/3/0
+ no passive-interface Se0/3/1
+
+!
+
+
+##############################################
+# ROUTER 3 – VENDORS BOOT
+##############################################
+enable
+configure terminal
+hostname VENDOR-EDGE-R3
+enable secret OSPF 
+!
+!
+# Interfaces
+interface Se0/3/0
+ ip address 10.0.0.2 255.0.0.0
+ encapsulation ppp
+ no shutdown
+!
+interface Se0/3/1
+ ip address 12.0.0.1 255.0.0.0
+ encapsulation ppp
+ clock rate 2000000
+ no shutdown
+!
+interface Fa0/1
+ ip address 192.168.2.1 255.255.255.0
+ duplex full
+ speed 100
+ no shutdown
+!
+interface Loopback0
+ ip address 3.3.3.3 255.255.255.255
+!
+# OSPF Configuration
+router ospf 1
+ router-id 3.3.3.3
+ network 10.0.0.0 0.0.0.3 area 0
+ network 12.0.0.0 0.0.0.3 area 0
+ network 192.168.2.0 0.0.0.255 area 0
+ passive-interface FastEthernet0/0
+ passive-interface Loopback0
+!
+
