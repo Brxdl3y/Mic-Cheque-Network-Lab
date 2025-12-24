@@ -1,4 +1,4 @@
- MIC CHEQUE PODCAST NETWORK – Enterprise Networking Simulation
+ **MIC CHEQUE PODCAST NETWORK – Enterprise Networking Simulation**
 
 > *"A good network is like a good sound engineer: you don’t notice it until it fails."*  
 
