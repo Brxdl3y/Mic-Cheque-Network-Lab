@@ -2,11 +2,11 @@
 
 > *"A good network is like a good sound engineer: you don’t notice it until it fails."*  
 
-Welcome to the **Mic Cheque Podcast Network Lab**, a fully simulated enterprise-grade infrastructure designed to showcase **advanced networking mastery**.  
+Welcome to the **Mic Cheque Podcast Network Lab**, a fully simulated enterprise-grade infrastructure designed to showcase advanced networking mastery.  
 This project blends **creativity, technical depth, and practical configurations** to create a realistic, secure, and scalable network.  
 
 
-Engineered in **Cisco Packet Tracer**, this topology mirrors a small-scale production network for a fictional media company, complete with WAN connectivity, VLAN segmentation, routing protocols, and enterprise-level security.
+Engineered in Cisco Packet Tracer, this topology mirrors a small-scale production network for a fictional media company, complete with WAN connectivity, VLAN segmentation, routing protocols, and enterprise-level security.
 
 
  Why This Lab Stands Out
