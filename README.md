@@ -9,7 +9,7 @@ This project blends **creativity, technical depth, and practical configurations*
 Engineered in Cisco Packet Tracer, this topology mirrors a small-scale production network for a fictional media company, complete with WAN connectivity, VLAN segmentation, routing protocols, and enterprise-level security.
 
 
- Why This Lab Stands Out
+ **Why This Lab Stands Out**
 
 This isn’t just a Packet Tracer file; it’s a demonstration of **network engineering sophistication**:
 
